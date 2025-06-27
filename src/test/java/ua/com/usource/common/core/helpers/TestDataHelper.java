@@ -1,5 +1,6 @@
 package ua.com.usource.common.core.helpers;
 
+import groovy.lang.GString;
 import ua.com.usource.common.consts.Constants;
 
 import java.text.SimpleDateFormat;
@@ -19,7 +20,9 @@ public class TestDataHelper {
     private static final String specials = "/*-+.,~!@#$%^&()_=";
     private static final String allCharacters = letters + letters.toLowerCase() + withZeroDigits;
     private static final String allCharactersIncludeSpecials = allCharacters + specials;
-
+    public static final String VALID_EMAIL = "loginer@usource.com.ua";
+    public static final String VALID_PASSWORD = "TY#pUEcGz7nN%b";
+    public static final String INVALID_EMAIL = "fakemail";
     /**
      * Returns date as formatted string with default format
      *

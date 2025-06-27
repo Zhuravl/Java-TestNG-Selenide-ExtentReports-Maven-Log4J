@@ -1,7 +1,7 @@
 package ua.com.usource.common.enums;
 
 /**
- * Enum contains set of available website pages
+ * Enum contains set of available website ua.com.usource.pages
  */
 public enum Pages {
 
