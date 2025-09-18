@@ -1,7 +1,9 @@
 package ua.com.usource.common.core.context;
 
+import com.codeborne.selenide.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.chrome.ChromeOptions;
 import ua.com.usource.common.consts.Constants;
 
 /**
@@ -11,13 +13,33 @@ public class TestContext {
 
     protected static Logger logger = LogManager.getLogger(TestContext.class);
 
+    static {
+        setDefaultProperty("browser", "chrome");
+        setDefaultProperty("url", "https://usource.com.ua/");
+        setDefaultProperty("timeout", String.valueOf(Constants.Driver.DEFAULT_TIMEOUT_SEC));
+
+        if ("chrome".equalsIgnoreCase(System.getProperty("browser"))) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--lang=en-US");
+            Configuration.browserCapabilities = options;
+        }
+    }
+
+    private static void setDefaultProperty(String key, String defaultValue) {
+        if (System.getProperty(key) == null || System.getProperty(key).isEmpty()) {
+            System.setProperty(key, defaultValue);
+            logger.info("System property '{}' not set. Using default: '{}'", key, defaultValue);
+        } else {
+            logger.info("System property '{}' found: '{}'", key, System.getProperty(key));
+        }
+    }
+
     /**
      * Returns Browser name from context
      */
     public static String getBrowserName() {
         return getProperty("browser", "Browser name");
     }
-
     /**
      * Returns browser version from context
      */
