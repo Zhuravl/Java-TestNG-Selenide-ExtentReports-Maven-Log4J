@@ -5,6 +5,9 @@ import ua.com.usource.common.core.context.TestContext;
 import ua.com.usource.common.enums.Pages;
 import ua.com.usource.elements.WebNavigationElements;
 
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.url;
+
 /**
  * Class contains action methods for the navigation functionality
  */
@@ -59,5 +62,10 @@ public class NavigationActions extends BaseActions {
         String url = WebDriverRunner.url();
         logger.info("Current URL: " + url);
         return url.contains(prefix);
+    }
+
+    public NavigationActions verifyUrl(String expectedUrl) {
+        webdriver().shouldHave(url(expectedUrl));
+        return this;
     }
 }
