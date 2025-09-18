@@ -10,6 +10,21 @@
     <url>https://usource.com.ua/</url>
     <version>1.0.0</version>
 
+    <profiles>
+        <profile>
+            <id>headlessTrue</id>
+            <properties>
+                <headless>true</headless>
+            </properties>
+        </profile>
+        <profile>
+            <id>headlessFalse</id>
+            <properties>
+                <headless>false</headless>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <resources>
             <resource>
@@ -54,6 +69,20 @@
                         <version>${aspectjweaver.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.34</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -103,6 +132,16 @@
             <artifactId>groovy</artifactId>
             <groupId>org.codehaus.groovy</groupId>
             <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>java-dotenv</artifactId>
+            <version>5.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.32</version>
         </dependency>
     </dependencies>
 
