@@ -1,6 +1,7 @@
 package ua.com.usource.actions;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +12,7 @@ import ua.com.usource.common.core.context.TestContext;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
@@ -51,4 +53,17 @@ public abstract class BaseActions {
         WebDriverWait waitForSpinner = new WebDriverWait(WebDriverRunner.getWebDriver(), Duration.ofSeconds(maxTimeOutSec));
         waitForSpinner.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(text(), 'Loading')]")));
     }
+
+
+    /**
+     * Clear text input
+     */
+    public void clearField(SelenideElement field){
+        field.clear();
+    }
+
+
+
+
+
 }

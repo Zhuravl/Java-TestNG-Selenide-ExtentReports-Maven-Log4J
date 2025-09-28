@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import ua.com.usource.actions.LoginActions;
 import ua.com.usource.actions.NavigationActions;
 import ua.com.usource.common.consts.Constants;
 import ua.com.usource.common.core.context.TestContext;
@@ -23,6 +24,7 @@ public abstract class BaseTest {
     protected static Logger logger = LogManager.getLogger(BaseTest.class);
 
     private NavigationActions navigation;
+    private LoginActions login;
 
     public BaseTest() {
     }
@@ -36,6 +38,17 @@ public abstract class BaseTest {
         }
         return navigation;
     }
+
+    /**
+     * Creates and returns NavigationActions instance
+     */
+    public LoginActions login() {
+        if (login == null) {
+            login = new LoginActions();
+        }
+        return login;
+    }
+
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
