@@ -27,4 +27,9 @@ public class WebNavigationElements extends BaseElements {
         logger.info("Clicking the Sign Up link");
         signUpPageLink.click();
     }
+
+
+
+
+
 }

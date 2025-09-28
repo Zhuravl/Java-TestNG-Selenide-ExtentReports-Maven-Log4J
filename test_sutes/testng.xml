@@ -1,0 +1,40 @@
+<suite name="Login test" parallel="tests" thread-count="1">
+
+    <test name="[login_tc_1] Check login with valid email and password and logout">
+        <classes>
+            <class name="ua.com.usource.tests.login.LoginWithValidDataAndLogoutTest"/>
+        </classes>
+    </test>
+
+    <test name="[login_tc_3] Check login with empty email and password">
+        <classes>
+            <class name="ua.com.usource.tests.login.LoginWithEmptyDataTest"/>
+        </classes>
+    </test>
+
+    <test name="[login_tc_4] Check login with valid email and empty password">
+        <classes>
+            <class name="ua.com.usource.tests.login.LoginWithEmptyPasswordTest"/>
+        </classes>
+    </test>
+
+    <test name="[login_tc_5] Check login with Unregistered email">
+        <classes>
+            <class name="ua.com.usource.tests.login.LoginWithUnregisteredEmailTest"/>
+        </classes>
+    </test>
+
+    <test name="[login_tc_6] Check login with invalid email">
+        <classes>
+            <class name="ua.com.usource.tests.login.LoginWithInvalidEmailTest"/>
+        </classes>
+    </test>
+
+    <test name="[login_tc_7] Check login with wrong password">
+        <classes>
+            <class name="ua.com.usource.tests.login.LoginWithWrongPasswordTest"/>
+        </classes>
+    </test>
+
+
+</suite>

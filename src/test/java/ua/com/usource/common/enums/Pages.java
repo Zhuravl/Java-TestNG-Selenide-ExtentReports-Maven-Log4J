@@ -5,6 +5,7 @@ package ua.com.usource.common.enums;
  */
 public enum Pages {
 
+    MAIN("Main",""),
     ABOUT("About", "about"),
     SIGN_IN("Sign In", "login"),
     SIGN_UP("Sign Up", "register");
